@@ -1,0 +1,31 @@
+version: "3"
+services:
+    redis:
+        image: redis:alpine
+        command: ["redis-server", "--appendonly", "yes"]
+        hostname: redis
+        volumes:
+            - redis-data:/data
+    webapp:
+        image: thehyve/transmart-packer
+        command: ['python', '-m', 'packer']
+        ports:
+            - 8999:8999
+        depends_on:
+            - redis
+        links:
+            - redis
+        environment:
+          TRANSMART_URL: '<%= @transmart_url %>'
+          KEYCLOAK_URL: '<%= @keycloak_url %>'
+
+    worker:
+        image: thehyve/transmart-packer
+        command:  ['celery', '-A', 'packer.tasks', 'worker', '-c', '4', '--loglevel', 'info']
+        depends_on:
+            - redis
+        links:
+            - redis
+
+volumes:
+  redis-data:
