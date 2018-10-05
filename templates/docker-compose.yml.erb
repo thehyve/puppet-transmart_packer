@@ -6,6 +6,7 @@ services:
         hostname: redis
         volumes:
             - redis-data:/data
+        restart: always
     webapp:
         image: thehyve/transmart-packer
         command: ['python', '-m', 'packer']
@@ -18,7 +19,7 @@ services:
         environment:
           TRANSMART_URL: '<%= @transmart_url %>'
           KEYCLOAK_URL: '<%= @keycloak_url %>'
-
+        restart: always
     worker:
         image: thehyve/transmart-packer
         command:  ['celery', '-A', 'packer.tasks', 'worker', '-c', '4', '--loglevel', 'info']
@@ -26,6 +27,7 @@ services:
             - redis
         links:
             - redis
+        restart: always
 
 volumes:
   redis-data:
