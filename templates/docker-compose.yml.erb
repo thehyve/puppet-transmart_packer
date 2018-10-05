@@ -6,8 +6,6 @@ services:
         hostname: redis
         volumes:
             - redis-data:/data
-        expose:
-            - 6379
     webapp:
         image: thehyve/transmart-packer
         command: ['python', '-m', 'packer']
