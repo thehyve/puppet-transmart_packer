@@ -8,7 +8,7 @@ services:
             - redis-data:/data
         restart: always
     webapp:
-        image: thehyve/transmart-packer
+        image: 'thehyve/transmart-packer:<%= @docker_image_version %>'
         command: ['python', '-m', 'packer']
         ports:
             - 8999:8999
@@ -21,7 +21,7 @@ services:
           KEYCLOAK_URL: '<%= @keycloak_url %>'
         restart: always
     worker:
-        image: thehyve/transmart-packer
+        image: 'thehyve/transmart-packer:<%= @docker_image_version %>'
         command:  ['celery', '-A', 'packer.tasks', 'worker', '-c', '4', '--loglevel', 'info']
         depends_on:
             - redis
