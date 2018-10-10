@@ -13,3 +13,4 @@ Puppet module to install transmart packer.
  - transmart_packer::transmart_url - transmart api url
  - transmart_packer::keycloak_url - keycloak url that used for transmart.
  - transmart_packer::docker_image_version - transmart packer docker image version (default: `latest`). It is located [in the docker hub](https://hub.docker.com/r/thehyve/transmart-packer/).
+ - transmart_packer::client_origin_url - The cross origin header. It indicates whether the response can be shared with requesting code from the given origin (default: `*` that opens resource to anyone).

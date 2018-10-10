@@ -3,6 +3,7 @@ class transmart_packer::params (
     String $keycloak_url = lookup('transmart_packer::keycloak_url', String, first, ''),
     String $docker_compose_file_path = lookup('transmart_packer::docker_compose_file_path', String, first, '/tmp/docker-compose.yml'),
     String $docker_image_version = lookup('transmart_packer::docker_image_version', String, first, 'latest'),
+    String $client_origin_url = lookup('transmart_packer::client_origin_url', String, first, '*'),
 ) {
 	if $transmart_url == '' {
         fail('No transmart url specified. Please configure transmart_packer::transmart_url')

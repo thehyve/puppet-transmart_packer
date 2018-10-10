@@ -19,6 +19,7 @@ services:
         environment:
           TRANSMART_URL: '<%= @transmart_url %>'
           KEYCLOAK_URL: '<%= @keycloak_url %>'
+          CLIENT_ORIGIN_URL: '<%= @client_origin_url %>'
         restart: always
     worker:
         image: 'thehyve/transmart-packer:<%= @docker_image_version %>'
