@@ -21,6 +21,8 @@ services:
           KEYCLOAK_URL: '<%= @keycloak_url %>'
           CLIENT_ORIGIN_URL: '<%= @client_origin_url %>'
         restart: always
+        volumes:
+          - export-data:/app/tmp_data_dir
     worker:
         image: 'thehyve/transmart-packer:<%= @docker_image_version %>'
         command:  ['celery', '-A', 'packer.tasks', 'worker', '-c', '4', '--loglevel', 'info']
@@ -33,6 +35,8 @@ services:
           KEYCLOAK_URL: '<%= @keycloak_url %>'
           CLIENT_ORIGIN_URL: '<%= @client_origin_url %>'
         restart: always
-
+        volumes:
+          - export-data:/app/tmp_data_dir
 volumes:
   redis-data:
+  export-data:
