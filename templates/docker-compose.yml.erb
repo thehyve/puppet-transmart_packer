@@ -20,6 +20,7 @@ services:
           TRANSMART_URL: '<%= @transmart_url %>'
           KEYCLOAK_URL: '<%= @keycloak_url %>'
           CLIENT_ORIGIN_URL: '<%= @client_origin_url %>'
+          CLIENT_ID: '<%= @keycloak_client_id %>'
         restart: always
         volumes:
           - export-data:/app/tmp_data_dir
