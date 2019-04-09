@@ -4,14 +4,13 @@ class transmart_packer inherits transmart_packer::params {
 
     class { 'docker::compose':
         ensure => present,
-        version => '1.22.0'
     }
 
-    file { $docker_compose_file_path:
+    file { "/${docker_compose_file_path}/docker-compose.yml":
         ensure => file,
         content => template('transmart_packer/docker-compose.yml.erb'),
-    } ~> docker_compose { 'packer_compose':
-        compose_files => [ $docker_compose_file_path ],
+    } ~> docker_compose { "$docker_compose_file_path":
+        compose_files => [ "/${docker_compose_file_path}/docker-compose.yml" ],
         ensure  => present,
     }
 }
