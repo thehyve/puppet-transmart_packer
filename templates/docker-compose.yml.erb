@@ -21,6 +21,7 @@ services:
           KEYCLOAK_SERVER_URL: '<%= @keycloak_server_url %>'
           KEYCLOAK_REALM: '<%= @keycloak_realm %>'
           KEYCLOAK_CLIENT_ID: '<%= @keycloak_client_id %>'
+          KEYCLOAK_OFFLINE_TOKEN: '<%= @keycloak_offline_token %>'
           CLIENT_ORIGIN_URL: '<%= @client_origin_url %>'
         restart: always
         volumes:
@@ -37,6 +38,7 @@ services:
           KEYCLOAK_SERVER_URL: '<%= @keycloak_server_url %>'
           KEYCLOAK_REALM: '<%= @keycloak_realm %>'
           KEYCLOAK_CLIENT_ID: '<%= @keycloak_client_id %>'
+          KEYCLOAK_OFFLINE_TOKEN: '<%= @keycloak_offline_token %>'
           CLIENT_ORIGIN_URL: '<%= @client_origin_url %>'
         restart: always
         volumes:
