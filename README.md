@@ -14,9 +14,11 @@ Puppet module to install transmart packer.
  - transmart_packer::keycloak_server_url - keycloak server url that used for transmart, e.g. `https://keycloak.example.com/`.
  - transmart_packer::keycloak_realm - keycloak realm (default: `dev`).
  - transmart_packer::keycloak_client_id - keycloak client (default: `transmart`).
+ - transmart_packer::keycloak_offline_token - keycloak offline token.
  - transmart_packer::docker_image_version - transmart packer docker image version (default: `latest`). It is located [in the docker hub](https://hub.docker.com/r/thehyve/transmart-packer/).
  - transmart_packer::client_origin_url - The cross origin header. It indicates whether the response can be shared with requesting code from the given origin (default: `*` that opens resource to anyone).
  
+ For more information regarding the `offline token`, see [transmart-packer documentation](https://github.com/thehyve/transmart-packer#running)
  ## License
  Copyright &copy; 2019 The Hyve B.V.
  
